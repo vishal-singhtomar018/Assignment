@@ -96,7 +96,7 @@ app.use(passport.session());
 // -------------------- ROUTES -------------------- //
 
 app.use("/api/v1", signupRoutes);       // API Signup route
-app.use("/", signupRoutes);             // Form Signup route
+app.use("/login", signupRoutes);             // Form Signup route
 app.use("/", noteRoutes);               // Notes routes
 app.use(googleAuthRoutes);              // Google OAuth
 
