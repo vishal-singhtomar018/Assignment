@@ -1,0 +1,69 @@
+<% layout('/layouts/boilerplate') %>
+    <div class="div1">
+        <section class="vh-100">
+            <div class="container py-5 h-100">
+                <div class="row d-flex justify-content-center align-items-center h-100">
+                    <div class="col col-xl-10">
+                        <div class="card" style="border-radius: 1rem;">
+
+                            <div class="row g-0">
+                                <div class="col-md-6 col-lg-5 d-none d-md-block">
+                                    <img src="/images/login.jpg" alt="login form" class="img-fluid"
+                                        style="border-radius:20px; height: 100%;" />
+                                </div>
+                                <div class="col-md-6 col-lg-7 d-flex align-items-center">
+                                    <div class="card-body p-4 p-lg-5 text-black">
+                                        <div class="d-flex justify-content-between align-items-center mb-3 pb-1">
+                                            <span class="h1 fw-bold mb-0">Sign In</span>
+                                            <img src="/images/logo.png" alt="HD Logo" style="height: 30px;" />
+                                        </div>
+
+
+                                        <h5 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;">
+                                            Please login to continue to your account
+                                        </h5>
+
+                                        <div class="form-outline mb-4 col-12">
+                                            <label for="email" class="form-label"><b>Email</b></label>
+                                            <div class="input-group">
+                                                <input type="email" placeholder="Enter email" class="form-control"
+                                                    id="email" name="email" required>
+                                                <button type="button" class="btn btn-outline-secondary"
+                                                    onclick="sendLoginOTP()">Send OTP</button>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-outline mb-4 " id="otp-section" style="display: none;">
+                                            <label for="otp" class="form-label"><b>Enter OTP</b></label>
+                                            <div class="input-group">
+                                                <input type="password" placeholder="Enter OTP" class="form-control"
+                                                    id="otp" name="otp" required>
+                                                <button type="button" class="btn btn-outline-secondary" id="toggle-otp">
+                                                    <i class="bi bi-eye-slash" id="otp-icon"></i>
+                                                </button>
+                                            </div>
+                                        </div>
+
+                                        <div class="d-grid col-12">
+                                            <button class="btn btn-primary" type="button"
+                                                onclick="loginWithOTP()">login</button><br><br>
+                                        </div>
+
+                                        <p class="mb-5 pb-lg-2" style="color: #393f81;">
+                                            Need an account? <a href="/signup"
+                                                style="color: #393f81; text-decoration: none;">Create one</a>
+                                        </p>
+                                        <a href="/auth/google" class="google-btn">
+                                            <img src="https://developers.google.com/identity/images/g-logo.png"
+                                                alt="Google logo" class="google-icon">
+                                            <span>Sign in with Google</span>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>

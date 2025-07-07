@@ -1,0 +1,46 @@
+<% layout('/layouts/boilerplate') %>
+
+
+
+
+<div class="d-flex justify-content-between ">
+  <h4 style="margin: auto;">Dashboard</h4>
+  <a href="/logout" class="btn btn-link logout">Sign Out</a>
+</div>
+
+<div class="welcome-box">
+  <h5><strong>Welcome, <%= user.name %>!</strong></h5>
+  <p>Email: <%= user.email %></p>
+</div>
+
+<!-- Create Note -->
+<form action="/createnote" method="POST" class="mb-4">
+  <div class="input-group">
+    <input type="text" name="content" class="form-control" placeholder="Enter your note" required>
+    <button type="submit" class="btn btn-primary">Create Note</button>
+  </div>
+</form>
+
+<!-- Notes List -->
+<h5>Notes</h5>
+<% if (typeof notes==='undefined' || !notes || notes.length===0) { %>
+  <p>No notes yet.</p>
+<% } else { %>
+  <% notes.forEach(note => { %>
+    <div class="card p-2 mb-4">
+      <div class="d-flex justify-content-between align-items-start">
+        <div class="note-content flex-grow-1" data-full="<%= note.content %>">
+          <% if (note.content.length > 100) { %>
+            <%= note.content.slice(0, 100) %>...
+            <a href="#" class="show-more">Show more</a>
+          <% } else { %>
+            <%= note.content %>
+          <% } %>
+        </div>
+        <form action="/notes/delete/<%= note._id %>" method="POST" class="ms-3">
+          <button type="submit" class="btn btn-sm btn-outline-danger">🗑</button>
+        </form>
+      </div>
+    </div>
+  <% }) %>
+<% } %>
