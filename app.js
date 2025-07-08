@@ -17,16 +17,6 @@ const passport = require("passport");
 require("./passport");
 require('dotenv').config(); // Add this at the top of your file
 
-const nodemailer = require('nodemailer');
-
-const transporter = nodemailer.createTransport({
-  service: 'gmail',
-  auth: {
-    user: process.env.MAIL_USER,
-    pass: process.env.MAIL_PASS, // <- App password from .env
-  },
-});
-
 
 // Internal Modules
 const User = require("./models/user.js");
