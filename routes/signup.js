@@ -10,7 +10,7 @@ router.get('/signup', (req, res) => {
     res.render('users/signup');
 });
 
-router.get("/login", (req, res) => {
+router.get("/", (req, res) => {
   res.render("users/login", {
     success: req.flash("success"),
     error: req.flash("error")
