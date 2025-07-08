@@ -30,29 +30,5 @@ const mailSender = async (email, title, body) => {
 };
 
 
-(async () => {
-  try {
-    let transporter = nodemailer.createTransport({
-      host: "smtp.gmail.com",
-      port: 465,
-      secure: true,
-      auth: {
-        user: process.env.MAIL_USER,
-        pass: process.env.MAIL_PASS,
-      },
-    });
-
-    let info = await transporter.sendMail({
-      from: `"Test Mailer" <${process.env.MAIL_USER}>`,
-      to: "your-personal-email@gmail.com",
-      subject: "Test Email",
-      html: "<h1>Hello!</h1><p>This is a test email.</p>",
-    });
-
-    console.log("✅ Sent:", info.response);
-  } catch (err) {
-    console.error("❌ Error:", err.message);
-  }
-})();
 
 module.exports = mailSender;
